@@ -1,0 +1,22 @@
+name: Day 1
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Check
+        run: |
+          cd day_1
+          chmod +x run_all_using_iverilog_under_linux_or_macos_brew.sh
+          ./run_all_using_iverilog_under_linux_or_macos_brew.sh
+          test $(grep -o -i FAIL log.txt | wc -l) == "0"
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: log
+          path: |
+            day_1/log.txt
