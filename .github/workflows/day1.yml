@@ -7,6 +7,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Install iverilog
+        run: |
+          sudo deb http://archive.ubuntu.com/ubuntu/ edgy universe 
+          sudo deb-src http://archive.ubuntu.com/ubuntu/ edgy universe
+          sudo sudo apt-get update
+          sudo sudo apt-get install iverilog
       - uses: actions/checkout@v3
       - name: Check
         run: |
