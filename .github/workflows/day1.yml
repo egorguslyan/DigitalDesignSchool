@@ -9,10 +9,8 @@ jobs:
     steps:
       - name: Install iverilog
         run: |
-          sudo deb http://archive.ubuntu.com/ubuntu/ edgy universe 
-          sudo deb-src http://archive.ubuntu.com/ubuntu/ edgy universe
-          sudo sudo apt-get update
-          sudo sudo apt-get install iverilog
+          wget --no-check-certificate http://archive.ubuntu.com/ubuntu/pool/universe/i/iverilog/iverilog_11.0-1.1_amd64.deb
+          sudo apt install ./iverilog_11.0-1.1_amd64.deb
       - uses: actions/checkout@v3
       - name: Check
         run: |
