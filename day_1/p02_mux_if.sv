@@ -22,11 +22,19 @@ module mux_4_1
   output logic [3:0] y
 );
 
-  // TODO
+  // Code for 4:1 mux using the "if" statement
 
-  // Using code for mux_2_1 as an example,
-  // write code for 4:1 mux using the "if" statement
-
+  always_comb
+    if (sel[1])
+      if (sel[0])
+        y = d3;
+      else
+        y = d2;
+    else
+      if (sel[0])
+        y = d1;
+      else
+        y = d0;
 
 endmodule
 

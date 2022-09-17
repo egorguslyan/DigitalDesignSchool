@@ -18,11 +18,13 @@ module or_gate_using_mux
     output o
 );
 
-  // TODO
-
-  // Implement or gate using instance(s) of mux,
+  // Or gate using instance(s) of mux,
   // constants 0 and 1, and wire connections
 
+  logic y;
+
+  mux mux0(1'd0, 1'd1, a, y);
+  mux mux1(y, 1'b1, b, o);
 
 endmodule
 

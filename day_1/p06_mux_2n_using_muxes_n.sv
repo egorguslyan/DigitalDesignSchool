@@ -18,10 +18,13 @@ module mux_4_1
   output [3:0] y
 );
 
-  // TODO
+  // mux_4_1 using three instances of mux_2_1
 
-  // Implement mux_4_1 using three instances of mux_2_1
+  logic [3:0] _y [1:0];
 
+  mux_2_1 mux0(d0, d1, sel[0], _y[0]);
+  mux_2_1 mux1(d2, d3, sel[0], _y[1]);
+  mux_2_1 mux2(_y[0], _y[1], sel[1], y);
 
 endmodule
 
