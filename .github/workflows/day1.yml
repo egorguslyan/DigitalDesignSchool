@@ -15,6 +15,7 @@ jobs:
           ./run_all_using_iverilog_under_linux_or_macos_brew.sh
           test $(grep -o -i FAIL log.txt | wc -l) == "0"
       - name: Archive artifacts
+        if: always()
         uses: actions/upload-artifact@v3
         with:
           name: log
