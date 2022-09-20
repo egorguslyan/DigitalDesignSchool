@@ -9,6 +9,8 @@ ____
 + Yandex disk: https://disk.yandex.ru/d/TgNzKg37H9zZmQ .
 + win установщик Icarus 11.0: https://disk.yandex.ru/d/YF9rduGAVGioEA. 
 + На Ubuntu 22.04 : sudo apt install iverilog gtkwave.
+
+Решения: [![Day 1](https://github.com/egorguslyan/DigitalDesignSchool/actions/workflows/day1.yml/badge.svg)](https://github.com/egorguslyan/DigitalDesignSchool/tree/main/day_1)
 ____
 :white_check_mark: - **day_2**: ```Архитектура: вид процессора с точки зрения программиста. Упражнения на симуляторе на уровне инструкций RARS. 16.09.2022```
 + Yandex disk: https://disk.yandex.ru/d/RDoKKMk_g4QBrw
