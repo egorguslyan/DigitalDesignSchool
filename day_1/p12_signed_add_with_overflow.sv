@@ -22,8 +22,6 @@ module signed_add_with_overflow
   // when the sum (either positive or negative)
   // does not fit into 4 bits
 
-  logic o;
-
   assign sum = a + b;
   assign overflow = (sum[3] != a[3]) & (a[3] == b[3]);
 

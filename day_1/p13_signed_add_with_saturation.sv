@@ -16,12 +16,16 @@ module signed_add_with_saturation
   output [3:0] sum
 );
 
-  // TODO
-
-  // Implement addition with saturation,
+  // Addition with saturation,
   // i.e. if the result does not fit
   // the maximum or minimum values should be used
 
+  logic overflow;
+  logic [3:0] s;
+
+  assign s = a + b;
+  assign overflow = (s[3] != a[3]) & (a[3] == b[3]);
+  assign sum = overflow ? {a[3], {3{~a[3]}}} : s;
 
 endmodule
 

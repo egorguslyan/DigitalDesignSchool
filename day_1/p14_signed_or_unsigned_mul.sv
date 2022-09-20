@@ -31,6 +31,21 @@ endmodule
 
 //----------------------------------------------------------------------------
 
+module signed_mul
+# (
+  parameter n = 8
+)
+(
+  input  signed [  n-1:0] a, b,
+  output signed [2*n-1:0] res
+);
+
+  assign res = a * b;
+
+endmodule
+
+//----------------------------------------------------------------------------
+
 module signed_or_unsigned_mul
 # (
   parameter n = 8
@@ -41,11 +56,14 @@ module signed_or_unsigned_mul
   output [2 * n - 1:0] res
 );
 
-  // TODO
-
-  // Implement a module that generates either signed or unsigned result
+  // Module that generates either signed or unsigned result
   // of the multiplication as requested by sign bit.
 
+  logic [2*n-1:0] sres, ures;
+
+  signed_mul #(n) sm(a, b, sres);
+  unsigned_mul #(n) um(a, b, ures);
+  assign res = sign ? sres : ures;
 
 endmodule
 
