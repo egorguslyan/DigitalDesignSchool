@@ -1,6 +1,9 @@
             .text
 
 start:      li    t4, 0x10010000
+            li    t0, 0
+            li    t1, 0x10
+            j     write
             li    t2, 10
             li    t3, 1
             li    t0, 1
@@ -18,3 +21,18 @@ fibonacci:  lw    t0, -4(t4)
             addi  t4, t4, 0x4
             sw	  t1, (t4)
             bnez  t2,  fibonacci
+
+write:
+    sw t0, (t4)
+    addi t4, t4, 0x4
+    addi t0, t0, 1
+    bne t0, t1, write
+
+    addi t1, t4, 0
+    li t4, 0x10010000
+inc:
+    lw t0, (t4)
+    addi t0, t0, 0xf
+    sw t0, (t4)
+    addi t4, t4, 0x4
+    bne t4, t1, inc
