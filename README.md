@@ -19,12 +19,13 @@ ____
 + _Доп.материалы к занятию: https://disk.yandex.ru/d/Epmk_EjsGL4eWw_
 + _Доп. ссылки для скачивания инструментов сборки и дизассемблирования: https://syntacore.com/page/products/sw-tools_
 ____
-:black_square_button: -**day_3**: ```Разбор и решение задач по комбинационной логике с Занятия №1. 24.09.2022```
+:white_check_mark: -**day_3**: ```Разбор и решение задач по комбинационной логике с Занятия №1. 24.09.2022```
 ____
-:black_square_button: -**day_4**: ```Комбинационная логика на ПЛИС: от И/ИЛИ/НЕ до графики на экране. 01.10.2022 ```
+:black_square_button: -**day_4**: 
+```Последовательностная логика на ПЛИС. Схемы с тактовым сигналом и состоянием. 01.10.2022```
 + Требуется установка Quartus 21.1 и icarus verilog версии 11.0. (При наличии платы так же необходимо установить драйвер USB-BLASTER)
 + Yandex disk папки с лабораторными: https://disk.yandex.ru/d/_KyTcb9fO7AJTQ.
 + win установщик Icarus 11.0: https://disk.yandex.ru/d/YF9rduGAVGioEA.  На Ubuntu 22.04 : sudo apt install iverilog gtkwave.
 + win/Ubuntu установщики Quartus 21.1 :  https://disk.yandex.ru/d/CSn1xlo5QHj-HA
-+ Дополнительные инструкции по установке ПО: installation_instruction.pdf в репозитории git
++ Инструкции по установке ПО: installation_instruction.pdf в репозитории git
 ____
