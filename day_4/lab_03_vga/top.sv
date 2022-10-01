@@ -57,31 +57,37 @@ module top
     typedef enum bit [2:0]
     {
       black  = 3'b000,
+      blue   = 3'b001,
+      green  = 3'b010,
       cyan   = 3'b011,
       red    = 3'b100,
+      purple = 3'b101,
       yellow = 3'b110,
       white  = 3'b111
-
-      // TODO: Add other colors
     }
     rgb_t;
 
     always_comb
     begin
-      // Circle
-
       if (~ display_on)
         rgb = black;
-      else if (x ** 2 + y ** 2 < 100 ** 2)
-        rgb = red;
-      else if (x > 200 & y > 200 & x < 300 & y < 400) 
-        rgb = yellow;
+      // Circle
       else if (key_sw == 4'b1111 & (x - 600) ** 2 + (y - 200) ** 2 < 70 ** 2)
         rgb = white;
+      else if (x ** 2 + y ** 2 < 100 ** 2)
+        rgb = red;
+      // Triangle
+      else if (y > 200 & y < 400 & x > (500 - y) & x > (500 + y))
+        rgb = green;
+      // Rectangle
+      else if (x > 200 & y > 200 & x < 300 & y < 400) 
+        rgb = yellow;
+      // Square
+      else if (x > 100 & y > 100 & x < 300 & y < 300) 
+        rgb = blue;
+      // Else
       else
-        rgb = cyan;
-
-      // TODO: Add other figures
+        rgb = black;
     end
 
 endmodule

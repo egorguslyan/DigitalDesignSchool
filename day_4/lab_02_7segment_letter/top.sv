@@ -39,37 +39,45 @@ module top
         A = 8'b00010001,
         B = 8'b11000001,
         C = 8'b01100011,
+        E = 8'b01100001,
+        G = 8'b01000011,
+        H = 8'b10010001,
+        I = 8'b11110011,
         K = 8'b01010001,
-        U = 8'b10000011
+        L = 8'b11100011,
+        O = 8'b00000011,
+        P = 8'b00110001,
+        r = 8'b11110101,
+        S = 8'b01001001,
+        U = 8'b10000011,
+        dis = {8{1'b1}}
     }
     seven_seg_encoding_e;
 
-    assign abcdefgh = key_sw [0] ? K : B;
-    assign digit    = key_sw [1] ? 4'b1110 : 4'b1101;
+    // assign abcdefgh = key_sw [0] ? K : B;
+    // assign digit    = key_sw [1] ? 4'b1110 : 4'b1101;
 
     // Exercise 1: Display the first letters
     // of your first name and last name instead.
 
-    // assign abcdefgh = ...
-    // assign digit    = ...
+    // assign abcdefgh = key_sw[0] ? (key_sw[1] ? G : U) : (key_sw[1] ? E : G);
+    // assign digit    = key_sw[1] ? 4'b1101 : 4'b1110;
 
     // Exercise 2: Display letters of a 4-character word
     // using this code to display letter of AUCA as an example
 
-    /*
     seven_seg_encoding_e letter;
     
     always_comb
       case (key_sw)
-      4'b0111: letter = A;
-      4'b1011: letter = U;
-      4'b1101: letter = C;
-      4'b1110: letter = A;
-      default: letter = K;
+      4'b0111: letter = C;
+      4'b1011: letter = H;
+      4'b1101: letter = I;
+      4'b1110: letter = P;
+      default: letter = dis;
       endcase
       
     assign abcdefgh = letter;
     assign digit    = key_sw == 4'b1111 ? 4'b0000 : key_sw;
-    */
 
 endmodule
