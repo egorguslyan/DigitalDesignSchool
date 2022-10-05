@@ -35,7 +35,7 @@ module top
       else
         cnt <= cnt + 32'b1;
 
-    wire enable = (cnt [22:0] == 23'b0);
+    wire enable = (cnt [16:0] == 23'b0);
 
     //------------------------------------------------------------------------
 
@@ -68,21 +68,24 @@ module top
         A = 8'b00010001,
         B = 8'b11000001,
         C = 8'b01100011,
+        H = 8'b10010001,
+        I = 8'b11110011,
         K = 8'b01010001,
+        P = 8'b00110001,
         U = 8'b10000011
     }
     letter;
     
-    always_comb
-    begin
-      case (shift_reg)
-      4'b1000: letter = A;
-      4'b0100: letter = U;
-      4'b0010: letter = C;
-      4'b0001: letter = A;
-      default: letter = K;
-      endcase
-    end
+    // always_comb
+    // begin
+    //   case (shift_reg)
+    //   4'b1000: letter = A;
+    //   4'b0100: letter = U;
+    //   4'b0010: letter = C;
+    //   4'b0001: letter = A;
+    //   default: letter = K;
+    //   endcase
+    // end
 
     assign abcdefgh = letter;
     assign digit    = ~ shift_reg;
@@ -92,6 +95,17 @@ module top
     // without any blinking. What is the threshold of such frequency?
 
     // Exercise 2: Put your name or another word to the display.
+
+    always_comb
+    begin
+      case (shift_reg)
+      4'b1000: letter = C;
+      4'b0100: letter = H;
+      4'b0010: letter = I;
+      4'b0001: letter = P;
+      default: letter = K;
+      endcase
+    end
 
     // Exercise 3: Comment out the "default" clause from the "case" statement
     // in the "always" block,and re-synthesize the example.

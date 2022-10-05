@@ -31,15 +31,15 @@ module top
     // How do you change the speed of LED blinking?
     // Try different bit slices to display.
 
-    logic [31:0] cnt;
+    // logic [31:0] cnt;
     
-    always_ff @ (posedge clk or posedge reset)
-      if (reset)
-        cnt <= 32'b0;
-      else
-        cnt <= cnt + 32'b1;
+    // always_ff @ (posedge clk or posedge reset)
+    //   if (reset)
+    //     cnt <= 32'b0;
+    //   else
+    //     cnt <= cnt + 32'b1;
 
-    assign led = ~ cnt [27:24];
+    // assign led = ~ cnt [29:26];
 
     // Exercise 2: Key-controlled counter.
     // Comment out the code above.
@@ -53,30 +53,32 @@ module top
     // 2. Two counters controlled by different keys
     // displayed in different groups of LEDs.
 
-    /*
+    wire [3:0] key = key_sw;
 
-    wire key = key_sw [0];
-
-    logic key_r;
+    logic [3:0] key_r;
     
     always_ff @ (posedge clk or posedge reset)
       if (reset)
-        key_r <= 1'b0;
+        key_r <= {4{1'b0}};
       else
         key_r <= key;
         
-    wire key_pressed = ~ key & key_r;
+    wire [3:0] key_pressed = ~ key & key_r;
 
     logic [3:0] cnt;
     
     always_ff @ (posedge clk or posedge reset)
       if (reset)
         cnt <= 4'b0;
-      else if (key_pressed)
+      else if (key_pressed[0])
         cnt <= cnt + 4'b1;
+      else if(key_pressed[1])
+        cnt <= cnt - 4'b1;
+      else if (key_pressed[2])
+        cnt <= ~ cnt;
+      else if(key_pressed[3])
+        cnt <= ~ cnt + 4'b1;
 
     assign led = ~ cnt;
-
-    */
 
 endmodule
