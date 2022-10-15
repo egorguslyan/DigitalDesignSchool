@@ -85,17 +85,17 @@ module top
 // Сейчас здесь правильная нота только C(До)=261.63 Гц и A(Ля)=440.00 Гц
 
     localparam freq_100_C  = 26163,
-               freq_100_Cs = 99999,
-               freq_100_D  = 99999,
-               freq_100_Ds = 99999,
-               freq_100_E  = 99999,
-               freq_100_F  = 99999,
-               freq_100_Fs = 99999,
-               freq_100_G  = 99999,
-               freq_100_Gs = 99999,
+               freq_100_Cs = 27720,
+               freq_100_D  = 29366,
+               freq_100_Ds = 31110,
+               freq_100_E  = 32963,
+               freq_100_F  = 34923,
+               freq_100_Fs = 37000,
+               freq_100_G  = 39200,
+               freq_100_Gs = 31530,
                freq_100_A  = 44000,
-               freq_100_As = 99999,
-               freq_100_B  = 99999;
+               freq_100_As = 46620,
+               freq_100_B  = 49388;
 
     //------------------------------------------------------------------------
 
@@ -235,46 +235,46 @@ module top
 //   // Задание 2. Вывести на семисегментные индикаторы буквы С О Л Ь, когда микрофон распознает ноту G
 //   // Сейчас здесь выводится "0" на все разряды
 
-//    logic [31:0] cnt;
-//    
-//    always_ff @ (posedge clk or posedge reset)
-//      if (reset)
-//        cnt <= 32'b0;
-//      else
-//        cnt <= cnt + 32'b1;
-//
-//    wire enable = (cnt [17:0] == 18'b0);
-//    logic [3:0] shift_reg;
-//    
-//    always_ff @ (posedge clk or posedge reset)
-//      if (reset)
-//        shift_reg <= 4'b0001;
-//      else if (enable)
-//        shift_reg <= { shift_reg [0], shift_reg [3:1] };
-//
-//    
-//    enum bit [7:0] 
-//    {
-//        o = 8'b00010001,
-//        n = 8'b00010001,
-//        c = 8'b00010001,
-//        b = 8'b00010001,
-//        x = 8'b11111111
-//    }
-//    letter;
-//    
-//    always_comb
-//    begin
-//      case (shift_reg)
-//      4'b1000: letter = c;
-//      4'b0100: letter = o;
-//      4'b0010: letter = n;
-//      4'b0001: letter = b;
-//      default: letter = c;
-//      endcase
-//    end
-//
-//    assign abcdefgh = (t_note == C) ? letter: x ;
-//    assign digit    = ~ shift_reg;
+    logic [31:0] cnt;
+    
+    always_ff @ (posedge clk or posedge reset)
+      if (reset)
+        cnt <= 32'b0;
+      else
+        cnt <= cnt + 32'b1;
+
+    wire enable = (cnt [17:0] == 18'b0);
+    logic [3:0] shift_reg;
+    
+    always_ff @ (posedge clk or posedge reset)
+      if (reset)
+        shift_reg <= 4'b0001;
+      else if (enable)
+        shift_reg <= { shift_reg [0], shift_reg [3:1] };
+
+    
+    enum bit [7:0] 
+    {
+        o = 8'b00000011,
+        n = 8'b10010111,
+        c = 8'b01100011,
+        b = 8'b11000001,
+        x = 8'b11111111
+    }
+    letter;
+    
+    always_comb
+    begin
+      case (shift_reg)
+      4'b1000: letter = c;
+      4'b0100: letter = o;
+      4'b0010: letter = n;
+      4'b0001: letter = b;
+      default: letter = c;
+      endcase
+    end
+
+    assign abcdefgh = (t_note == C) ? letter: x ;
+    assign digit    = ~ shift_reg;
 
 endmodule
