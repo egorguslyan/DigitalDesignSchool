@@ -53,3 +53,4 @@ ____
 :black_square_button: -**day_7**: 
 ```Система проектирования OpenLane.  22.10.2022```
 + Ya.Disk с инструкциями и виртуальной машиной: https://disk.yandex.ru/d/fA1sQncc5wWfcw
++ OpenLane https://github.com/The-OpenROAD-Project/OpenLane/tree/2022.10.20
