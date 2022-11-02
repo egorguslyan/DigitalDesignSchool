@@ -50,7 +50,20 @@ ____
 + Инструкции по установке ПО: installation_instruction.pdf в репозитории git
 + Описание структуры каталога с лабораторными в installation_instruction.pdf
 ____
-:black_square_button: -**day_7**: 
+:white_check_mark: -**day_7**: 
 ```Система проектирования OpenLane.  22.10.2022```
 + Ya.Disk с инструкциями и виртуальной машиной: https://disk.yandex.ru/d/fA1sQncc5wWfcw
 + OpenLane https://github.com/The-OpenROAD-Project/OpenLane/tree/2022.10.20
+____
+:white_check_mark: -**day_8**: 
+```Микроархитектура однотактового процессора SCHOOLRISCV. 29.10.2022```
++ Основной репозиторий SCHOOLRISCV: https://github.com/zhelnio/schoolRISCV
++ Требуется установка java jre/jdk 8 версии или новее для использования симулятора RARS.  
++ win установщик последней версии jre: https://disk.yandex.ru/d/Fh9obaB71tMA3Q
++ На Ubuntu: sudo apt-get install openjdk-8-jre
++ Требуется установка Quartus 21.1 (При наличии платы так же необходимо установить драйвер USB-BLASTER)
++ win/Ubuntu установщики Quartus 21.1 :  https://disk.yandex.ru/d/CSn1xlo5QHj-HA
++ Для симуляции необходим Icarus Verilog
++ win установщик Icarus 11.0: https://disk.yandex.ru/d/YF9rduGAVGioEA
++ На Ubuntu 22.04 : sudo apt install iverilog gtkwave.
++ Для работы с Makefile на Ubuntu: sudo apt install make
