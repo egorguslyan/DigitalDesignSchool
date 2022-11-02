@@ -9,7 +9,7 @@ module moore_fsm
     output y
 );
     
-    parameter [0:4] code = 5'b101101;
+    parameter [0:5] code = 6'b101101;
 
     reg [2:0] state;
     wire [2:0] next_state;
@@ -24,7 +24,7 @@ module moore_fsm
 
     // Next state logic
 
-    assign next_state = code[state] == a ? (state >= 5 ? state + 1 : 1) : 0;
+    assign next_state = code[state] == a ? (state >= 5 ? 1 : state + 1) : 0;
 
     // Output logic based on current state
 
