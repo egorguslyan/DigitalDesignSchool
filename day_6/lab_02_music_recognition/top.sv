@@ -234,8 +234,9 @@ module top
  * Изменить набор мелодий. Закодировать свою мелодию
  */
 
-`define SONGS_123
+//`define SONGS_123
 //`define SONGS_456
+`define SONGS_7
 
 `ifdef SONGS_123
 
@@ -364,6 +365,27 @@ module top
             12: if ( t_note == A  ) states [2] <= 13;
             13: if ( t_note == G  ) states [2] <= 14;
             14: if ( t_note == Bf ) states [2] <= recognized;
+            endcase
+
+`elsif SONGS_7
+
+    // No 7. FPGA Test sequence
+
+    always_ff @ (posedge clk or posedge reset)
+        if (reset)
+            states [0] <= 0;
+        else
+            case (states [0])
+             0: if ( t_note == G  ) states [0] <=  1;
+             1: if ( t_note == C  ) states [0] <=  2;
+             2: if ( t_note == Ds ) states [0] <=  3;
+             3: if ( t_note == D  ) states [0] <=  4;
+             4: if ( t_note == Fs ) states [0] <=  5;
+             5: if ( t_note == A  ) states [0] <=  6;
+             6: if ( t_note == G  ) states [0] <=  7;
+             7: if ( t_note == D  ) states [0] <=  8;
+             8: if ( t_note == F  ) states [0] <=  9;
+             9: if ( t_note == C  ) states [0] <= recognized;
             endcase
 
 `endif
