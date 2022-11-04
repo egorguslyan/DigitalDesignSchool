@@ -54,6 +54,13 @@ ____
 ```Система проектирования OpenLane.  22.10.2022```
 + Ya.Disk с инструкциями и виртуальной машиной: https://disk.yandex.ru/d/fA1sQncc5wWfcw
 + OpenLane https://github.com/The-OpenROAD-Project/OpenLane/tree/2022.10.20
++ Решение:
+>! FP_CORE_UTIL: 57
+>
+>! PL_TARGET_DENSITY: 0.9 // Мой комп не справится с большей плотностью
+>
+>![04 11 2022_03:42:1667544149](https://user-images.githubusercontent.com/42677093/199909039-d7e6ac4d-c471-47b3-9ce0-02638e87ecde.png)
+>![04 11 2022_03:42:1667544162](https://user-images.githubusercontent.com/42677093/199909052-23a5b537-10a5-46b2-940a-7969e5b7ce8f.png)
 ____
 :white_check_mark: -**day_8**: 
 ```Микроархитектура однотактового процессора SCHOOLRISCV. 29.10.2022```
